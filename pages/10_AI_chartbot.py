@@ -1,17 +1,13 @@
 import streamlit as st
 from datetime import datetime
 from google import genai
-from config import GEMINI_API_KEY
 
-
-
-
-from google import genai
 from config import GEMINI_API_KEY
 
 client = genai.Client(
     api_key=GEMINI_API_KEY
 )
+
 
 # =====================================
 # PAGE CONFIG
@@ -141,33 +137,16 @@ if "quick_question" in st.session_state:
 # =====================================
 
 def generate_response(question):
-
     try:
-
-        prompt = f"""
-        You are an AI Healthcare Assistant.
-
-        Rules:
-        - Provide educational healthcare information.
-        - Do not diagnose diseases.
-        - Recommend consulting doctors when needed.
-        - Keep responses clear and professional.
-
-        User Question:
-        {question}
-        """
-
         response = client.models.generate_content(
             model="gemini-2.5-flash",
-            contents=prompt
+            contents=question
         )
-
         return response.text
 
     except Exception as e:
-
-        return f"Error: {e}"
-
+        return str(e)
+    
 # =====================================
 # CHAT HISTORY
 # =====================================
