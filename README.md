@@ -58,6 +58,11 @@ An intelligent healthcare platform built using **Python**, **Streamlit**, and **
 
 ---
 
+## Demo link 
+https://healthcare-ai-system-6g6o.onrender.com
+
+
+
 ## 📂 Project Structure
 
 ```text
